@@ -1,0 +1,3 @@
+GET https://apistaging.inclass.app/api/v1/courses_filtering?filter[subject_id]=14&page[number]=1&page[size]=4
+Content-Type: application/json
+
