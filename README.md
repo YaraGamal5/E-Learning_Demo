@@ -15,7 +15,5 @@ In the project root directory, run `npm start`. This will open your default web 
 
 The project currently contains 4 pages:
 
-- Landing Page.
-- Login Page.
-- More Courses Page.
-- Course Details Page.
+- Home Page.
+
