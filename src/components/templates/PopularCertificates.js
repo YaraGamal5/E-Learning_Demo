@@ -1,17 +1,19 @@
-import { Stack, Typography, Button } from "@mui/material";
-import CustomTabs from "./CustomTabs";
-import HomeSection from "./HomeSection";
+import { Stack, Typography, Button, useMediaQuery, useTheme } from "@mui/material";
+import CustomTabs from "../organisms/CustomTabs";
+import HomeSection from "../molecules/HomeSection";
 import IbmIcon from "../../assets/home/ibm.svg";
 import GoogleIcon from "../../assets/home/colored-google-icon.svg";
 import GoogleCloudIcon from "../../assets/home/google-cloud-icon.svg";
-import CustomCard from "./CustomCard";
+import CustomCard from "../organisms/CustomCard";
 
 function PopularCertificates() {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   let title = "Popular Certificates";
   let subtitle = (
     <>
-      Break into a new field. No prior experience <br /> necessary to get
-      started
+      Break into a new field. No prior experience <br /> necessary to get started
     </>
   );
 
@@ -76,13 +78,13 @@ function PopularCertificates() {
     );
 
     let content = (
-      <Typography noWrap fontSize="17px" fontWeight={600} color="#000000">
+      <Typography noWrap fontSize={isSmallScreen ? "16px" : "17px"} fontWeight={600} color="#000000">
         {card.content}
       </Typography>
     );
 
     let actions = (
-      <Typography fontSize="20px" fontWeight={600} color="#343434">
+      <Typography fontSize={isSmallScreen ? "18px" : "20px"} fontWeight={600} color="#343434">
         {card.actions}
       </Typography>
     );
@@ -99,12 +101,12 @@ function PopularCertificates() {
   });
 
   let content = (
-    <Stack padding="0px 80px" spacing="80px" marginBottom="100px">
-      <Stack spacing="50px">
-        <CustomTabs value={1} tabs={certificates} tabWidth="281px" />
+    <Stack padding={isSmallScreen ? "0px 20px" : "0px 80px"} spacing={isSmallScreen ? "40px" : "80px"} marginBottom="100px">
+      <Stack spacing={isSmallScreen ? "30px" : "50px"}>
+        <CustomTabs value={1} tabs={certificates} tabWidth={isSmallScreen ? "100%" : "281px"} />
         <Stack
-          direction="row"
-          spacing="30px"
+          direction={isSmallScreen ? "column" : "row"}
+          spacing={isSmallScreen ? "10px" : "30px"}
           alignItems="center"
           justifyContent="center"
         >
@@ -115,9 +117,9 @@ function PopularCertificates() {
         <Button
           variant="contained"
           sx={{
-            width: "314px",
+            width: isSmallScreen ? "100%" : "314px",
             height: "52px",
-            fontSize: "20px",
+            fontSize: isSmallScreen ? "16px" : "20px",
           }}
         >
           View More Certificates

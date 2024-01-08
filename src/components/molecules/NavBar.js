@@ -3,9 +3,14 @@ import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import useTheme from "@mui/material/styles/useTheme";
 import SearchIcon from "../../assets/header/search-icon.svg";
 
 function NavBar({ placeholder }) {
+  const theme = useTheme();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
+
   const [selOption, setSelOption] = useState("");
   const [dispValue, setDispValue] = useState("");
 
@@ -28,7 +33,7 @@ function NavBar({ placeholder }) {
       options={[]}
       renderInput={(params) => {
         return (
-          <Stack direction="row" width="550px">
+          <Stack direction={isLargeScreen ? "row" : "column"} width={isLargeScreen ? "550px" : "100%"}>
             <TextField {...params} size="small" placeholder={placeholder} />
             <Button variant="contained">
               <img src={SearchIcon} alt="search-icon" />

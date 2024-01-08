@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Typography, Button, Box, Stack } from "@mui/material";
 import CustomCard from "./CustomCard";
-import Review from "./Review";
+import Review from "../atoms/Review";
 import WhiteShoppingCart from "../../assets/home/white-shopping-cart.svg";
 import PrimaryShoppingCart from "../../assets/header/shopping-cart-icon.svg";
 

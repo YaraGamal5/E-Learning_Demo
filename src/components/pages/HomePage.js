@@ -1,15 +1,16 @@
 import { Stack } from "@mui/material";
-import Banner from "../components/home/Banner";
-import LearningProcess from "../components/home/LearningProcess";
-import TopCategories from "../components/home/TopCategories";
-import BenefitsOfLearning from "../components/home/BenefitsOfLearning";
-import MostPopular from "../components/home/MostPopular";
-import OurClients from "../components/home/OurClients";
-import PopularCertificates from "../components/home/PopularCertificates";
-import WhatsappIcon from "../assets/home/green-whatsapp-icon.svg";
+import Banner from "../atoms/Banner";
+import LearningProcess from "../templates/LearningProcess";
+import TopCategories from "../templates/TopCategories";
+import BenefitsOfLearning from "../templates/BenefitsOfLearning";
+import MostPopular from "../templates/MostPopular";
+import OurClients from "../templates/OurClients";
+import PopularCertificates from "../templates/PopularCertificates";
+import WhatsappIcon from "../../assets/home/green-whatsapp-icon.svg";
 
 function HomePage() {
   return (
+  
     <Stack spacing="100px">
       <Banner />
       <Stack>
@@ -37,6 +38,7 @@ function HomePage() {
       <OurClients />
       <PopularCertificates />
     </Stack>
+   
   );
 }
 

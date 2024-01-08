@@ -1,29 +1,20 @@
-import { Box, Container } from "@mui/material";
+import { Container, CssBaseline, ThemeProvider, Box } from "@mui/material";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
-import HomePage from "./pages/HomePage";
-
+import Header from "./components/organisms/Header";
+import Footer from "./components/organisms/Footer";
+import HomePage from "./components/pages/HomePage";
+import { mainTheme } from "./themes/main-theme";
 
 function App() {
-  
-
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
-        <Box>
+        <Box style={{ overflowX: "hidden" }}>
           <Header />
-          <HomePage />
-          <Footer />
-        </Box>
-      ),
-    },
-    {
-      path: "course-details/:course_id",
-      element: (
-        <Box>
-          <Header />
+          <Container maxWidth="xl" disableGutters>
+            <HomePage />
+          </Container>
           <Footer />
         </Box>
       ),
@@ -31,9 +22,10 @@ function App() {
   ]);
 
   return (
-    <Container maxWidth="xl" disableGutters>
+    <ThemeProvider theme={mainTheme}>
+      <CssBaseline style={{ margin: 0, padding: 0 }} />
       <RouterProvider router={router} />
-    </Container>
+    </ThemeProvider>
   );
 }
 
